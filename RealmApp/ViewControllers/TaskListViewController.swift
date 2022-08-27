@@ -45,12 +45,14 @@ class TaskListViewController: UITableViewController {
         let taskList = taskLists[indexPath.row]
         content.text = taskList.name
         content.secondaryText = "\(taskList.tasks.count)"
+        
         if taskList.tasks.filter("isComplete = false").count == 0 {
             cell.accessoryType = .checkmark
             content.secondaryText = .none
         } else {
             cell.accessoryType = .none
         }
+        
         cell.contentConfiguration = content
         return cell
     }
